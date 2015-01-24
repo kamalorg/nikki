@@ -11,3 +11,17 @@ and open the template in the editor.
 #logo{
     font-family:Lobster;
 }
+#slider ul li{
+    list-style: none;
+}
+#middle_left{
+    float:left;
+    width:50%;
+}
+#middle_right{
+    float:right;
+    width:50%;
+}
+#pre_footer{
+    clear:both;
+}
