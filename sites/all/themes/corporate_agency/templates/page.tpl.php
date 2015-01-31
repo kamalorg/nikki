@@ -72,20 +72,7 @@
           <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>"><?php print $site_name; ?></a>
         </h1>
       </div>
-      <div class="grid_8">
-        <nav id="navigation" class="main-navigation" role="navigation">
-          <div id="main-menu">
-            <?php 
-              if (module_exists('i18n_menu')) {
-                $main_menu_tree = i18n_menu_translated_tree(variable_get('menu_main_links_source', 'main-menu'));
-              } else {
-                $main_menu_tree = menu_tree(variable_get('menu_main_links_source', 'main-menu'));
-              }
-              print drupal_render($main_menu_tree);
-            ?>
-          </div>
-        </nav>
-      </div>
+      
     </div>
   </header>
 
@@ -140,98 +127,53 @@
   <?php else: ?>
     <div class="headboz"></div>
   <?php endif; ?>
-
-  <?php if($page['preface_first'] || $page['preface_middle'] || $page['preface_last'] || $page['header']): ?>
-    <div class="intro clearfix">
-      <?php if($page['preface_first'] || $page['preface_middle'] || $page['preface_last']): ?>
-        <?php $preface_col = ( 12 / ( (bool) $page['preface_first'] + (bool) $page['preface_middle'] + (bool) $page['preface_last'] ) ); ?>
-        <div id="preface-area">
-          <div class="container_12">
-            <?php if($page['preface_first']): ?><div class="preface-block grid_<?php print $preface_col; ?>">
-              <?php print render ($page['preface_first']); ?>
-            </div><?php endif; ?>
-            <?php if($page['preface_middle']): ?><div class="preface-block grid_<?php print $preface_col; ?>">
-              <?php print render ($page['preface_middle']); ?>
-            </div><?php endif; ?>
-            <?php if($page['preface_last']): ?><div class="preface-block grid_<?php print $preface_col; ?>">
-              <?php print render ($page['preface_last']); ?>
-            </div><?php endif; ?>
+    <div class="grid_8">
+        <nav id="navigation" class="main-navigation" role="navigation">
+          <div id="main-menu">
+            <?php 
+              if (module_exists('i18n_menu')) {
+                $main_menu_tree = i18n_menu_translated_tree(variable_get('menu_main_links_source', 'main-menu'));
+              } else {
+                $main_menu_tree = menu_tree(variable_get('menu_main_links_source', 'main-menu'));
+              }
+              print drupal_render($main_menu_tree);
+            ?>
           </div>
+        </nav>
+      </div>
+    
+        <?php if ($page['content_top']): ?>
+        <div id="content_top">
+        <?php print render($page['content_top']); ?>
         </div>
-      <?php endif; ?>
-
-      <?php if($page['header']) : ?>
-        <div id="header-block">
-          <div class="container_12">
-            <div class="grid_12">
-              <?php print render($page['header']); ?>
-            </div>
-          </div>
-        </div>
-      <?php endif; ?>
-    </div>
-  <?php endif; ?>
-
-  <div id="main-content" class="container_12 clearfix">
-    <?php if($page['sidebar_first']) { $primary_col = 8; } else { $primary_col = 12; } ?>
-    <div id="primary" class="grid_<?php print $primary_col; ?>">
-      <section id="content" role="main" class="clearfix">
-        <?php if (theme_get_setting('breadcrumbs')): ?><?php if ($breadcrumb): ?><div id="breadcrumbs"><?php print $breadcrumb; ?></div><?php endif;?><?php endif; ?>
-        <?php print $messages; ?>
-        <?php if ($page['content_top']): ?><div id="content_top"><?php print render($page['content_top']); ?></div><?php endif; ?>
-        <div id="content-wrap">
-          <?php print render($title_prefix); ?>
-          <?php if ($title): ?><h1 class="page-title"><?php print $title; ?></h1><?php endif; ?>
-          <?php print render($title_suffix); ?>
-          <?php if (!empty($tabs['#primary'])): ?><div class="tabs-wrapper clearfix"><?php print render($tabs); ?></div><?php endif; ?>
-          <?php print render($page['help']); ?>
-          <?php if ($action_links): ?><ul class="action-links"><?php print render($action_links); ?></ul><?php endif; ?>
-          <?php print render($page['content']); ?>
-        </div>
-      </section>
-    </div>
-    <?php if ($page['sidebar_first']): ?>
-      <aside id="sidebar" class="grid_4" role="complementary">
-       <?php print render($page['sidebar_first']); ?>
-      </aside> 
     <?php endif; ?>
-  </div>
-
-  <?php if($page['footer']) : ?>
-    <div id="footer-block clearfix">
-      <div class="container_12">
-        <div class="grid_12">
-          <?php print render($page['footer']); ?>
+        <?php if (!$is_front && $page['content']): ?>
+        <div id ="content">
+        <?php print render($page['content']); ?>
         </div>
-      </div>
+        <?php endif; ?>
+    <div id="middle_content">
+            <?php if ($page['middle_left']): ?>
+            <div id ="middle_left">
+            <?php print render($page['middle_left']); ?>
+            </div>
+        <?php endif; ?>
+            <?php if ($page['middle_right']): ?>
+            <div id ="middle_right">
+            <?php print render($page['middle_right']); ?>
+            </div>
+    <?php endif; ?>
     </div>
-  <?php endif; ?>
+        <?php if ($page['pre_footer']): ?>
+        <div id ="pre_footer">
+        <?php print render($page['pre_footer']); ?>
+        </div>
+    <?php endif; ?>
+        <?php if ($page['footer']): ?>
+        <div id ="footer">
+        <?php print render($page['footer']); ?>
+        </div>
+<?php endif; ?>
 
-  <?php if ($page['footer_first'] || $page['footer_second'] || $page['footer_third'] || $page['footer_fourth']): ?>
-    <?php $footer_col = ( 12 / ( (bool) $page['footer_first'] + (bool) $page['footer_second'] + (bool) $page['footer_third'] + (bool) $page['footer_fourth'] ) ); ?>
-    <div id="bottom" class="clearfix">
-      <div class="container_12">
-        <?php if($page['footer_first']): ?><div class="footer-block grid_<?php print $footer_col; ?>">
-          <?php print render ($page['footer_first']); ?>
-        </div><?php endif; ?>
-        <?php if($page['footer_second']): ?><div class="footer-block grid_<?php print $footer_col; ?>">
-          <?php print render ($page['footer_second']); ?>
-        </div><?php endif; ?>
-        <?php if($page['footer_third']): ?><div class="footer-block grid_<?php print $footer_col; ?>">
-          <?php print render ($page['footer_third']); ?>
-        </div><?php endif; ?>
-        <?php if($page['footer_fourth']): ?><div class="footer-block grid_<?php print $footer_col; ?>">
-          <?php print render ($page['footer_fourth']); ?>
-        </div><?php endif; ?>
-      </div>
-    </div>
-  <?php endif; ?>
-
-  <footer id="colophon" class="site-footer clearfix" role="contentinfo">
-    <div class="container_12">
-      <div class="fcred grid_12">
-        <?php print t('Copyright'); ?> &copy; <?php echo date("Y"); ?>, <a href="<?php print $front_page; ?>"><?php print $site_name; ?></a>. <?php print t('Theme by'); ?>  <a href="http://www.devsaran.com" target="_blank">Devsaran</a>.
-      </div>
-    </div>
-  </footer>
+ 
 </div>
