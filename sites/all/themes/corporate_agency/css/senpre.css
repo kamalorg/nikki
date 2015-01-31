@@ -22,6 +22,12 @@ and open the template in the editor.
     float:right;
     width:50%;
 }
-#pre_footer,#content_top{
+#pre_footer,#content_top,#middle_content{
     clear:both;
+}
+#main-menu{
+    margin-top: 0;
+}
+.about-feature{
+    display:inline-flex;
 }
