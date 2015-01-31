@@ -127,7 +127,7 @@
   <?php else: ?>
     <div class="headboz"></div>
   <?php endif; ?>
-    <div class="grid_8">
+    <div class="main-menu">
         <nav id="navigation" class="main-navigation" role="navigation">
           <div id="main-menu">
             <?php 
