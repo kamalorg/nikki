@@ -1360,3 +1360,12 @@ ul.inline, ul.links.inline {
     padding-top: 5px;
     overflow: hidden;
 }
+.view-recent-views .view-content .views-row .field-content img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    float: left;
+    margin-right: 20px;
+    width: 120px;
+    height: 120px;
+}
