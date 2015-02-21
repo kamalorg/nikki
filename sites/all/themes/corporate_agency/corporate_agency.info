@@ -2,13 +2,17 @@ name = Corporate Agency Theme
 description = Corporate Agency Theme is a premium Drupal 7 theme. Developed by <a href="http://www.devsaran.com">Devsaran.com</a>.
 core = 7.x
 engine = phptemplate
+
 stylesheets[all][] = css/grid.css
 stylesheets[all][] = css/animate.css
 stylesheets[all][] = style.css
+stylesheets[all][] = css/flexslider.css
 stylesheets[all][] = css/senpre.css
 
-scripts[] = js/custom.js
+;scripts[] = js/custom.js    
+scripts[] = js/jquery.flexslider.js
 scripts[] = js/senpre.js
+
 
 regions[sidebar_first]  = First Sidebar
 regions[header]         = Header

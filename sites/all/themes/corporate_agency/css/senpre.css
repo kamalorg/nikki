@@ -34,3 +34,10 @@ and open the template in the editor.
 .headboz{
     background: none;
 }
+#masthead.masthead{
+    background-image: none;
+}
+.flexslider .slides li img{
+    width: 100%;
+    height: 500px;
+}

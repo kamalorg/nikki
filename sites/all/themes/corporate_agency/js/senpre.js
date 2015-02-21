@@ -1,6 +1,6 @@
 (function($){
     $(document).ready(function(){
-        $('#slider').flexslider({
+        $('.flexslider').flexslider({
             animation : "slide"
         });
     });

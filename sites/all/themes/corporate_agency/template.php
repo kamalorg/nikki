@@ -112,7 +112,7 @@ function corporate_agency_page_alter($page) {
  * Add javascript files for front-page jquery slideshow.
  */
 if (drupal_is_front_page()) {
-  drupal_add_js(drupal_get_path('theme', 'corporate_agency') . '/js/cycle2.js');
-  drupal_add_js(drupal_get_path('theme', 'corporate_agency') . '/js/center2.js');
-  drupal_add_js(drupal_get_path('theme', 'corporate_agency') . '/js/slide.js');
+//  drupal_add_js(drupal_get_path('theme', 'corporate_agency') . '/js/cycle2.js');
+//  drupal_add_js(drupal_get_path('theme', 'corporate_agency') . '/js/center2.js');
+//  drupal_add_js(drupal_get_path('theme', 'corporate_agency') . '/js/slide.js');
 }

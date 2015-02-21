@@ -64,8 +64,12 @@
  * @see template_process()
  */
 ?>
+
 <div id="page">
-    <header id="masthead" role="banner">
+    <?php
+    $master_head_class = ($is_front)? "masthead":"innerpage";
+    ?>
+    <header id="masthead" role="banner" class="<?php echo $master_head_class; ?>">
         <div class="container_12">
             <div class="site-branding grid_4">
                 <h1 class="site-title">
@@ -145,8 +149,23 @@
 
             </div>
         </div>
-    <?php else: ?>
-        <div class="headboz"></div>
+    <?php elseif($is_front): ?>
+    <div class="flexslider">
+            <ul class="slides">
+            <li>
+                <img src="<?php print base_path() . drupal_get_path('theme', 'corporate_agency') . '/images/banner1.jpg' ?>" />  
+            </li>
+            <li>
+                <img src="<?php print base_path() . drupal_get_path('theme', 'corporate_agency') . '/images/banner2.jpg' ?>" />
+            </li>
+            <li>
+                <img src="<?php print base_path() . drupal_get_path('theme', 'corporate_agency') . '/images/banner3.jpg' ?>" />
+            </li>
+            <li>
+                <img src="<?php print base_path() . drupal_get_path('theme', 'corporate_agency') . '/images/banner4.jpg' ?>" />
+            </li>
+        </ul>
+    </div>
     <?php endif; ?>
 
     <?php if ($page['banner_top']): ?>
