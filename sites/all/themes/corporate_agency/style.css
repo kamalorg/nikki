@@ -1240,13 +1240,14 @@ ul.inline, ul.links.inline {
     text-transform: uppercase;
 }
 .banner_text {
-    font-size: 50px;
+    font-size: 43px;
     width: 80%;
     position: relative;
     bottom: 100px;
-    margin: 0px 50px;
+    margin-left: 50px;
     color: #fff;
     text-transform: uppercase;
+    line-height: 84px;
 }
 #header-banner {
     width: 100%;
