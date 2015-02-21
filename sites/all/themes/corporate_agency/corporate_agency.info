@@ -5,7 +5,11 @@ engine = phptemplate
 stylesheets[all][] = css/grid.css
 stylesheets[all][] = css/animate.css
 stylesheets[all][] = style.css
+stylesheets[all][] = css/senpre.css
+
 scripts[] = js/custom.js
+scripts[] = js/senpre.js
+
 regions[sidebar_first]  = First Sidebar
 regions[header]         = Header
 regions[preface_first]  = Preface First
@@ -38,7 +42,22 @@ settings[slide2_desc]  = "Lorem ipsum dolor sit amet, consectetur adipisicing el
 settings[slide3_desc]  = "Duis aute irure dolor in reprehenderit inLorem ipsum dolor sit amet, consectetur do Lorem ipsum dolor sit amet irure..."
 settings[slide1_url]  = "node/1"
 settings[slide2_url]  = "node/2"
-settings[slide3_url]  = "node/3
+settings[slide3_url]  = "node/3"
+
+regions[banner_top] = Banner Top
+regions[content_top] = Content Top
+regions[page_bottom] = Page bottom
+regions[highlighted] = Highlighted
+
+regions[featured] = Featured
+regions[content] = Content
+regions[middle_left] = Middle Left
+regions[middle_right] = Middle Right
+
+regions[pre_footer] = Pre Footer
+
+
+regions[footer] = Footer
 ; Information added by Drupal.org packaging script on 2013-12-28
 version = "7.x-1.0"
 core = "7.x"
