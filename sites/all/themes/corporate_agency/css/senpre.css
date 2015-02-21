@@ -22,12 +22,15 @@ and open the template in the editor.
     float:right;
     width:50%;
 }
-#pre_footer,#content_top,#middle_content{
+#pre_footer,#content_top,#middle_content,#banner_top{
     clear:both;
 }
 #main-menu{
-    margin-top: 0;
+    /*margin-top: 0;*/
 }
 .about-feature{
     display:inline-flex;
+}
+.headboz{
+    background: none;
 }

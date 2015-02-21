@@ -65,115 +65,125 @@
  */
 ?>
 <div id="page">
-  <header id="masthead" role="banner">
-    <div class="container_12">
-      <div class="site-branding grid_4">
-        <h1 class="site-title">
-          <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>"><?php print $site_name; ?></a>
-        </h1>
-      </div>
-      
-    </div>
-  </header>
+    <header id="masthead" role="banner">
+        <div class="container_12">
+            <div class="site-branding grid_4">
+                <h1 class="site-title">
+                    <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>"><?php print $site_name; ?></a>
+                </h1>
+            </div>
+
+        </div>
+        <div id="header-banner"></div>
+        <div class="main-menu">
+            <nav id="navigation" class="main-navigation" role="navigation">
+                <div id="main-menu">
+                    <?php
+                    if (module_exists('i18n_menu')) {
+                        $main_menu_tree = i18n_menu_translated_tree(variable_get('menu_main_links_source', 'main-menu'));
+                    } else {
+                        $main_menu_tree = menu_tree(variable_get('menu_main_links_source', 'main-menu'));
+                    }
+                    print drupal_render($main_menu_tree);
+                    ?>
+                </div>
+            </nav>
+        </div>
+    </header>
 
 
-  <?php if ($is_front && theme_get_setting('slideshow_display','corporate_agency')): ?>
-  <?php 
-    $slide1_head = check_plain(theme_get_setting('slide1_head','corporate_agency'));   $slide1_desc = check_plain(theme_get_setting('slide1_desc','corporate_agency')); $slide1_url = check_plain(theme_get_setting('slide1_url','corporate_agency'));
-    $slide2_head = check_plain(theme_get_setting('slide2_head','corporate_agency'));   $slide2_desc = check_plain(theme_get_setting('slide2_desc','corporate_agency')); $slide2_url = check_plain(theme_get_setting('slide2_url','corporate_agency'));
-    $slide3_head = check_plain(theme_get_setting('slide3_head','corporate_agency'));   $slide3_desc = check_plain(theme_get_setting('slide3_desc','corporate_agency')); $slide3_url = check_plain(theme_get_setting('slide3_url','corporate_agency'));
-  ?>
-  <div class="home-slider">
-    <div class="cycle-slideshow"
-      data-cycle-caption-plugin='caption2' 
-      data-cycle-slides="li" 
-      data-cycle-fx='scrollHorz' 
-      data-cycle-speed='700' 
-      data-cycle-timeout='8000' 
-      data-cycle-center-horz=true
-      data-cycle-center-vert=true
-      data-cycle-prev=".prev" 
-      data-cycle-next=".next"   
-      data-cycle-caption-template="<span class=stitle>{{ptitle}}</span><br><span class=stext>{{ptext}}</span> "      
-      data-cycle-pause-on-hover="true" >
-      <div class="cycle-caption custom"></div>
-      <ul>
+    <?php if ($is_front && theme_get_setting('slideshow_display', 'corporate_agency')): ?>
+        <?php
+        $slide1_head = check_plain(theme_get_setting('slide1_head', 'corporate_agency'));
+        $slide1_desc = check_plain(theme_get_setting('slide1_desc', 'corporate_agency'));
+        $slide1_url = check_plain(theme_get_setting('slide1_url', 'corporate_agency'));
+        $slide2_head = check_plain(theme_get_setting('slide2_head', 'corporate_agency'));
+        $slide2_desc = check_plain(theme_get_setting('slide2_desc', 'corporate_agency'));
+        $slide2_url = check_plain(theme_get_setting('slide2_url', 'corporate_agency'));
+        $slide3_head = check_plain(theme_get_setting('slide3_head', 'corporate_agency'));
+        $slide3_desc = check_plain(theme_get_setting('slide3_desc', 'corporate_agency'));
+        $slide3_url = check_plain(theme_get_setting('slide3_url', 'corporate_agency'));
+        ?>
+        <div class="home-slider">
+            <div class="cycle-slideshow"
+                 data-cycle-caption-plugin='caption2' 
+                 data-cycle-slides="li" 
+                 data-cycle-fx='scrollHorz' 
+                 data-cycle-speed='700' 
+                 data-cycle-timeout='8000' 
+                 data-cycle-center-horz=true
+                 data-cycle-center-vert=true
+                 data-cycle-prev=".prev" 
+                 data-cycle-next=".next"   
+                 data-cycle-caption-template="<span class=stitle>{{ptitle}}</span><br><span class=stext>{{ptext}}</span> "      
+                 data-cycle-pause-on-hover="true" >
+                <div class="cycle-caption custom"></div>
+                <ul>
 
-        <li <?php if($slide1_head): ?> data-cycle-ptitle="<?php print $slide1_head; ?>" <?php endif; ?>
-            <?php if($slide1_desc): ?> data-cycle-ptext="<?php print $slide1_desc; ?>" <?php endif; ?>
-            data-cycle-pmore="Read More" data-cycle-plink="<?php print url($slide1_url); ?>">
-          <a class="frmore" href="<?php print url($slide1_url); ?>"> <img src="<?php print base_path() . drupal_get_path('theme', 'corporate_agency') . '/images/slide-image-1.jpg'; ?>"/> </a>
-        </li>
+                    <li <?php if ($slide1_head): ?> data-cycle-ptitle="<?php print $slide1_head; ?>" <?php endif; ?>
+                                                    <?php if ($slide1_desc): ?> data-cycle-ptext="<?php print $slide1_desc; ?>" <?php endif; ?>
+                                                    data-cycle-pmore="Read More" data-cycle-plink="<?php print url($slide1_url); ?>">
+                        <a class="frmore" href="<?php print url($slide1_url); ?>"> <img src="<?php print base_path() . drupal_get_path('theme', 'corporate_agency') . '/images/slide-image-1.jpg'; ?>"/> </a>
+                    </li>
 
-        <li <?php if($slide2_head): ?> data-cycle-ptitle="<?php print $slide2_head; ?>" <?php endif; ?>
-            <?php if($slide2_desc): ?> data-cycle-ptext="<?php print $slide2_desc; ?>" <?php endif; ?>
-            data-cycle-pmore="Read More" data-cycle-plink="<?php print url($slide2_url); ?>">
-          <a class="frmore" href="<?php print url($slide2_url); ?>"> <img src="<?php print base_path() . drupal_get_path('theme', 'corporate_agency') . '/images/slide-image-2.jpg'; ?>"/> </a>
-        </li>
+                    <li <?php if ($slide2_head): ?> data-cycle-ptitle="<?php print $slide2_head; ?>" <?php endif; ?>
+                                                    <?php if ($slide2_desc): ?> data-cycle-ptext="<?php print $slide2_desc; ?>" <?php endif; ?>
+                                                    data-cycle-pmore="Read More" data-cycle-plink="<?php print url($slide2_url); ?>">
+                        <a class="frmore" href="<?php print url($slide2_url); ?>"> <img src="<?php print base_path() . drupal_get_path('theme', 'corporate_agency') . '/images/slide-image-2.jpg'; ?>"/> </a>
+                    </li>
 
-        <li <?php if($slide3_head): ?> data-cycle-ptitle="<?php print $slide3_head; ?>" <?php endif; ?>
-            <?php if($slide3_desc): ?> data-cycle-ptext="<?php print $slide3_desc; ?>" <?php endif; ?>
-            data-cycle-pmore="Read More" data-cycle-plink="<?php print url($slide3_url); ?>">
-          <a class="frmore" href="<?php print url($slide3_url); ?>"> <img src="<?php print base_path() . drupal_get_path('theme', 'corporate_agency') . '/images/slide-image-3.jpg'; ?>"/> </a>
-        </li>
+                    <li <?php if ($slide3_head): ?> data-cycle-ptitle="<?php print $slide3_head; ?>" <?php endif; ?>
+                                                    <?php if ($slide3_desc): ?> data-cycle-ptext="<?php print $slide3_desc; ?>" <?php endif; ?>
+                                                    data-cycle-pmore="Read More" data-cycle-plink="<?php print url($slide3_url); ?>">
+                        <a class="frmore" href="<?php print url($slide3_url); ?>"> <img src="<?php print base_path() . drupal_get_path('theme', 'corporate_agency') . '/images/slide-image-3.jpg'; ?>"/> </a>
+                    </li>
 
-      </ul>
+                </ul>
 
-      <div class="prev"></div>
-      <div class="next"></div>
+                <div class="prev"></div>
+                <div class="next"></div>
 
-    </div>
-  </div>
-  <?php else: ?>
-    <div class="headboz"></div>
-  <?php endif; ?>
-    <div class="main-menu">
-        <nav id="navigation" class="main-navigation" role="navigation">
-          <div id="main-menu">
-            <?php 
-              if (module_exists('i18n_menu')) {
-                $main_menu_tree = i18n_menu_translated_tree(variable_get('menu_main_links_source', 'main-menu'));
-              } else {
-                $main_menu_tree = menu_tree(variable_get('menu_main_links_source', 'main-menu'));
-              }
-              print drupal_render($main_menu_tree);
-            ?>
-          </div>
-        </nav>
-      </div>
-    
-        <?php if ($page['content_top']): ?>
-        <div id="content_top">
-        <?php print render($page['content_top']); ?>
+            </div>
+        </div>
+    <?php else: ?>
+        <div class="headboz"></div>
+    <?php endif; ?>
+
+    <?php if ($page['banner_top']): ?>
+        <div id="banner_top" >
+            <?php print render($page['banner_top']); ?>
         </div>
     <?php endif; ?>
-        <?php if (!$is_front && $page['content']): ?>
-        <div id ="content">
-        <?php print render($page['content']); ?>
+    <?php if ($page['content_top']): ?>
+        <div id="content_top" class="open-grid">
+            <?php print render($page['content_top']); ?>
         </div>
-        <?php endif; ?>
-    <div id="middle_content">
-            <?php if ($page['middle_left']): ?>
-            <div id ="middle_left">
-            <?php print render($page['middle_left']); ?>
+    <?php endif; ?>
+    <?php if (!$is_front && $page['content']): ?>
+        <div id ="content" class="open-grid">
+            <?php print render($page['content']); ?>
+        </div>
+    <?php endif; ?>
+    <div id="middle_content" class="open-grid">
+        <?php if ($page['middle_left']): ?>
+            <div id ="middle_left" class="open-grid">
+                <?php print render($page['middle_left']); ?>
             </div>
         <?php endif; ?>
-            <?php if ($page['middle_right']): ?>
-            <div id ="middle_right">
-            <?php print render($page['middle_right']); ?>
+        <?php if ($page['middle_right']): ?>
+            <div id ="middle_right" class="open-grid">
+                <?php print render($page['middle_right']); ?>
             </div>
-    <?php endif; ?>
+        <?php endif; ?>
     </div>
-        <?php if ($page['pre_footer']): ?>
-        <div id ="pre_footer">
-        <?php print render($page['pre_footer']); ?>
+    <?php if ($page['pre_footer']): ?>
+        <div id ="pre_footer" class="open-grid">
+            <?php print render($page['pre_footer']); ?>
         </div>
     <?php endif; ?>
-        <?php if ($page['footer']): ?>
-        <div id ="footer">
-        <?php print render($page['footer']); ?>
+    <?php if ($page['footer']): ?>
+        <div id ="footer" class="open-grid">
+            <?php print render($page['footer']); ?>
         </div>
-<?php endif; ?>
+    <?php endif; ?>
 
- 
-</div>

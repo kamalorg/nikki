@@ -44,6 +44,7 @@ settings[slide1_url]  = "node/1"
 settings[slide2_url]  = "node/2"
 settings[slide3_url]  = "node/3"
 
+regions[banner_top] = Banner Top
 regions[content_top] = Content Top
 regions[page_bottom] = Page bottom
 regions[highlighted] = Highlighted
